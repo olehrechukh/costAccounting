@@ -19,7 +19,7 @@ The application uses hard-coded data for stock purchases and allows users to spe
 - `tests/` - Holds tests for verifying calculation correctness and application functionality.
 
 ## Architecture
-The application follows a three-tier architecture with the following layers:
+The application follows a three-tiered architecture consisting of the following layers:
 
 - **Presentation Layer:** Static Web Files: client interface to interact with the API for visualizing share calculations and API to 
 handle HTTP requests and responses, providing endpoints for calculating share metrics.
@@ -70,19 +70,22 @@ To run this project locally:
 ```shell
 git clone https://github.com/olehrechukh/costAccounting
 ```
-1. Navigate to the project directory:
+2. Navigate to the project directory:
 ```shell
 cd costAccounting
 ```
-1. Install dependencies:
+3. Install dependencies:
 ```shell
 dotnet restore
 ```
-1. Install dependencies:
+4. Install dependencies:
 ```shell
 dotnet run --project .\src\Web\Web.csproj
 ```
-
+Open the application in your browser:
+```url
+http://localhost:5224
+```
 ## Testing
 The project includes unit and integration tests the functionality of the core components.
 
