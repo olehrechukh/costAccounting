@@ -39,8 +39,8 @@ public class SharesController : ControllerBase
     /// <param name="salePrice">The price per share for the sale.</param>
     /// <param name="costStrategy">The cost strategy to use for the calculation.</param>
     /// <returns>A <see cref="CostCalculationResult"/> object with remaining shares, cost basis, and profit/loss details.</returns>
-    [HttpGet("remaining")]
-    public async Task<ActionResult<CostCalculationResult>> CalculateRemainingShares(int sharesToSell, decimal salePrice, CostStrategy costStrategy)
+    [HttpGet("costDetails")]
+    public async Task<ActionResult<CostCalculationResult>> CalculateCostDetails(int sharesToSell, decimal salePrice, CostStrategy costStrategy)
     {
         if (sharesToSell <= 0)
         {

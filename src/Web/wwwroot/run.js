@@ -52,7 +52,7 @@ async function calculateRemainingShares() {
   }
   
   try {
-    const response = await fetch(`${apiUrl}/remaining?sharesToSell=${sharesToSell}&salePrice=${salePrice}&costStrategy=${costStrategy}`, {
+    const response = await fetch(`${apiUrl}/costDetails?sharesToSell=${sharesToSell}&salePrice=${salePrice}&costStrategy=${costStrategy}`, {
       method: 'GET'
     });
 
