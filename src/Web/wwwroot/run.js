@@ -10,18 +10,18 @@ async function getShares() {
     let html = `
                     <table>
                         <tr>
+                            <th>Investment Date</th>
                             <th>Quantity</th>
                             <th>Price Per Share</th>
-                            <th>Investment Date</th>
                         </tr>
                 `;
 
     data.forEach(shareLot => {
       html += `
                         <tr>
+                            <td>${new Date(shareLot.investmentDate).toLocaleDateString()}</td>
                             <td>${shareLot.quantity}</td>
                             <td>$${shareLot.pricePerShare.toFixed(2)}</td>
-                            <td>${new Date(shareLot.investmentDate).toLocaleDateString()}</td>
                         </tr>
                     `;
     });
