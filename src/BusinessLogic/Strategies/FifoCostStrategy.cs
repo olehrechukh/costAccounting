@@ -18,5 +18,4 @@ public class FifoCostStrategy : CostStrategyBase
     /// <returns>An ordered collection of <see cref="ShareLot"/> based on the acquisition date, from earliest to latest.</returns>
     protected override IEnumerable<ShareLot> OrderShareLot(ShareLot[] shareLots) =>
         shareLots.OrderBy(shareLot => shareLot.InvestmentDate);
-
 }

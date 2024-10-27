@@ -45,18 +45,19 @@ public class ShareService
     /// <param name="costStrategy">The cost calculation strategy to use (e.g., FIFO, LIFO).</param>
     /// <returns>A <see cref="CostCalculationResult"/> containing calculated details for the sale.</returns>
     /// <exception cref="ArgumentException">Thrown if requested shares to sell exceed available shares.</exception>
-    public async Task<CostCalculationResult> CalculateCostDetails(int sharesToSell, decimal salePrice, CostStrategy costStrategy)
+    public async Task<CostCalculationResult> CalculateCostDetails(int sharesToSell, decimal salePrice,
+        CostStrategy costStrategy)
     {
         Guard.Against.NegativeOrZero(sharesToSell);
         Guard.Against.NegativeOrZero(salePrice);
-        
+
         var shareLots = await _repository.GetShares();
 
         if (GetTotalSharesQuantity(shareLots) < sharesToSell)
         {
             throw new InsufficientSharesException();
         }
-        
+
         var strategy = _costStrategyFactory.CreateStrategy(costStrategy);
 
         var remainingShares = strategy.CalculateRemainingShares(shareLots, sharesToSell);

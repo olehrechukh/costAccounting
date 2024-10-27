@@ -9,7 +9,7 @@ public enum CostStrategy
     /// Unknown strategy, used as a default when no specific strategy is selected.
     /// </summary>
     Unknown,
-    
+
     /// <summary>
     /// First-In, First-Out (FIFO) strategy.
     /// Shares are sold from the earliest purchased lot first, moving sequentially to later lots.

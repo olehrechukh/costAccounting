@@ -40,16 +40,17 @@ public class SharesController : ControllerBase
     /// <param name="costStrategy">The cost strategy to use for the calculation.</param>
     /// <returns>A <see cref="CostCalculationResult"/> object with remaining shares, cost basis, and profit/loss details.</returns>
     [HttpGet("costDetails")]
-    public async Task<ActionResult<CostCalculationResult>> CalculateCostDetails(int sharesToSell, decimal salePrice, CostStrategy costStrategy)
+    public async Task<ActionResult<CostCalculationResult>> CalculateCostDetails(int sharesToSell, decimal salePrice,
+        CostStrategy costStrategy)
     {
         if (sharesToSell <= 0)
         {
-            return BadRequest(new ProblemDetails {Detail = $"{nameof(sharesToSell)} must be greater than 0."});
+            return BadRequest(new ProblemDetails { Detail = $"{nameof(sharesToSell)} must be greater than 0." });
         }
 
         if (costStrategy != CostStrategy.FIFO)
         {
-            return BadRequest(new ProblemDetails {Detail = $"Only {CostStrategy.FIFO} strategy is supported."});
+            return BadRequest(new ProblemDetails { Detail = $"Only {CostStrategy.FIFO} strategy is supported." });
         }
 
         var remainingShares = await _calculationService.CalculateCostDetails(sharesToSell, salePrice, costStrategy);

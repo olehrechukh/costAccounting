@@ -43,7 +43,7 @@ public class CostStrategyFactoryTests
     public void CreateStrategy_ShouldThrowInvalidOperationException_WhenStrategyCannotBeResolved()
     {
         _serviceProviderMock.Setup(sp => sp.GetService(typeof(FifoCostStrategy)))
-            .Returns(null!); 
+            .Returns(null!);
 
         Action act = () => _factory.CreateStrategy(CostStrategy.FIFO);
 

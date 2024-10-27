@@ -45,12 +45,11 @@ async function calculateRemainingShares() {
   }
 
 
-
   if (sharesToSell >= 2147483647 || salePrice >= 2147483647) {
     document.getElementById("calculationOutput").innerHTML = `<span class="error">Shares to sell and sale price must be less than 2147483647.</span>`;
     return;
   }
-  
+
   try {
     const response = await fetch(`${apiUrl}/costDetails?sharesToSell=${sharesToSell}&salePrice=${salePrice}&costStrategy=${costStrategy}`, {
       method: 'GET'

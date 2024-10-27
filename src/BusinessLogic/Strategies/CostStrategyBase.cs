@@ -82,7 +82,6 @@ public abstract class CostStrategyBase : ICostStrategy
         Guard.Against.NegativeOrZero(sharesToSell);
 
         int remainingSharesToSell = sharesToSell;
-
         var remainingLots = new List<ShareLot>();
 
         foreach (var lot in OrderShareLot(shareLots))
@@ -95,8 +94,10 @@ public abstract class CostStrategyBase : ICostStrategy
 
             if (remainingSharesToSell < lot.Quantity)
             {
-                remainingLots.Add(new ShareLot(lot.Quantity - remainingSharesToSell, lot.PricePerShare,
-                    lot.InvestmentDate));
+                var shareLot = new ShareLot(lot.Quantity - remainingSharesToSell, lot.PricePerShare,
+                    lot.InvestmentDate);
+                
+                remainingLots.Add(shareLot);
                 remainingSharesToSell = 0;
             }
             else
@@ -114,7 +115,7 @@ public abstract class CostStrategyBase : ICostStrategy
         {
             return 0;
         }
-        
+
         var totalRemainingCost = remainingLots.Sum(lot => lot.Quantity * lot.PricePerShare);
         return totalRemainingCost / remainingLots.Sum(lot => lot.Quantity);
     }

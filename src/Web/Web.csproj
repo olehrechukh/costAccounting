@@ -13,11 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\api\specification.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\index.html"/>
   </ItemGroup>
 
 </Project>

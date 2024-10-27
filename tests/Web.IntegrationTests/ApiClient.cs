@@ -11,10 +11,11 @@ public class ApiClient(HttpClient client) : IDisposable
         return message;
     }
 
-    public async Task<HttpResponseMessage> CalculateCostDetails(int sharesToSell, decimal salePrice, CostStrategy costStrategy)
+    public async Task<HttpResponseMessage> CalculateCostDetails(int sharesToSell, decimal salePrice,
+        CostStrategy costStrategy)
     {
-        var message =
-            await client.GetAsync($"api/Shares/costDetails?sharesToSell={sharesToSell}&salePrice={salePrice}&costStrategy={costStrategy}");
+        var message = await client.GetAsync(
+            $"api/Shares/costDetails?sharesToSell={sharesToSell}&salePrice={salePrice}&costStrategy={costStrategy}");
 
         return message;
     }

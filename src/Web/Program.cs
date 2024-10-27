@@ -26,7 +26,7 @@ app.UseExceptionHandler(_ => { });
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseDefaultFiles(); 
+app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
