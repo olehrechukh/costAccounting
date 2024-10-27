@@ -1,7 +1,6 @@
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 using Models.Exceptions;
 
 namespace Web.Common;
