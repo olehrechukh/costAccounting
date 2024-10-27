@@ -82,7 +82,7 @@ public class CalculateCostDetailsTests
     }
 
     [Test]
-    public async Task CalculateCostDetails_ShouldReturnAllValues_WhenInvalidShares1()
+    public async Task CalculateCostDetails_ShouldReturnAllValues_WhenExceedsAvailableShares()
     {
         int sharesToSell = _shareLots.Sum(shareLot => shareLot.Quantity);
         var response = await _apiClient.CalculateCostDetails(sharesToSell + 1, 20, CostStrategy.FIFO);
