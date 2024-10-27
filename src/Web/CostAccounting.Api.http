@@ -1,6 +1,8 @@
 @CostAccounting.Api_HostAddress = http://localhost:5224
 
-GET {{CostAccounting.Api_HostAddress}}/weatherforecast/
+GET {{CostAccounting.Api_HostAddress}}/api/Shares/
 Accept: application/json
 
 ###
+GET {{CostAccounting.Api_HostAddress}}/api/Shares/remaining?sharesToSell=40&salePrice=100&costStrategy=1
+Accept: application/json

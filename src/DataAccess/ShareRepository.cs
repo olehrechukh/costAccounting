@@ -2,11 +2,6 @@
 
 namespace DataAccess;
 
-public interface IShareRepository
-{
-    Task<ShareLot[]> GetShares();
-}
-
 public class ShareRepository : IShareRepository
 {
     private readonly ShareLot[] _shareLots;
@@ -18,7 +13,8 @@ public class ShareRepository : IShareRepository
         _shareLots =
         [
             new ShareLot(100, 20, january),
-            new ShareLot(100, 20, january.AddMonths(1))
+            new ShareLot(150, 30, january.AddMonths(1)),
+            new ShareLot(120, 10, january.AddMonths(2))
         ];
     }
 

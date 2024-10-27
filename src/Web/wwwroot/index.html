@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Accounting </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Cost Accounting </h2>
+
+<div class="container">
+    <div class="section">
+        <div id="sharesOutput">Fetching available shares...</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <h3>Calculate Cost Details</h3>
+        <label for="sharesToSell">Shares to Sell:</label>
+        <input type="number" id="sharesToSell" min="1" placeholder="Enter number of shares to sell" required>
+
+        <label for="salePrice">Sale Price (per share):</label>
+        <input type="number" id="salePrice" min="0.01" step="0.01" placeholder="Enter sale price per share" required>
+
+        <label for="costStrategy">Cost Strategy:</label>
+        <select id="costStrategy">
+            <option value="FIFO">FIFO</option>
+            <option value="LIFO" disabled>LIFO</option>
+            <option value="LIFO" disabled>AverageCost</option>
+            <option value="LIFO" disabled>LowestTaxExposure</option>
+            <option value="LIFO" disabled>LotBased</option>
+        </select>
+
+        <button onclick="calculateRemainingShares()">Calculate</button>
+        <div id="calculationOutput" class="result">Enter details and click "Calculate" to see results...</div>
+    </div>
+</div>
+
+<script src="run.js"></script>
+
+</body>
+</html>
