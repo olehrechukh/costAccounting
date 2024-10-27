@@ -23,8 +23,32 @@ The application follows a three-tier architecture with the following layers:
 
 - **Presentation Layer:** Static Web Files: client interface to interact with the API for visualizing share calculations and API to 
 handle HTTP requests and responses, providing endpoints for calculating share metrics.
-- **Service Layer:** Contains business logic and interacts with repositories and strategies to perform calculations.
+- **Business Logic Layer:** Contains business logic and interacts with repositories and strategies to perform calculations.
 - **Data Access Layer:** Abstracts access to the data source (e.g., a database or in-memory storage).
+
+```mermaid
+graph LR
+    subgraph Presentation_Layer
+        A[Static Web App]
+        D[API Endpoints]
+    end
+
+    subgraph Business_Logic
+        B[ShareService]
+    end
+
+    subgraph Data_Access_Layer
+        C[Data Storage]
+    end
+
+    %% Define Relationships
+    A -- Sends Request --> D
+    D -- Requests calculation --> B
+    B -- Requests Data --> C
+    C -- Responds with Data --> B
+    B -- Returns calculation result --> D
+    D -- Sends Response --> A
+```
 
 ## Data Setup
 
